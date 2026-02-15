@@ -24,3 +24,36 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
+
+
+
+
+
+/* Table bhitra ko preview styling miluna */
+.quill-content-preview p {
+  margin: 0;
+  display: inline;
+}
+.quill-content-preview strong {
+  font-weight: bold;
+  color: #9ca3af;
+}
+.quill-content-preview em {
+  font-style: italic;
+}
+
+
+.blog-description-preview p {
+  display: inline;
+  margin: 0;
+}
+
+
+/* Ant Design Select*/
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-color: #213a59 !important;
+  
+}

@@ -1,0 +1,35 @@
+// // src/middleware.ts
+// import { NextResponse } from 'next/server';
+// import type { NextRequest } from 'next/server';
+
+// export function middleware(request: NextRequest) {
+//   const token = request.cookies.get('accessToken');
+//   const isDashboardPage = request.nextUrl.pathname.startsWith('/dashboard');
+
+//   if (isDashboardPage && !token) {
+//     return NextResponse.redirect(new URL('/auth/login', request.url));
+//   }
+
+//   return NextResponse.next();
+// }
+
+// export const config = {
+//   matcher: ['/dashboard/:path*'], 
+// };
+
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+export function proxy(request: NextRequest) {
+  const token = request.cookies.get('accessToken');
+
+  if (!token) {
+    return NextResponse.redirect(new URL('/auth/login', request.url));
+  }
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: ['/dashboard/:path*'], 
+};
